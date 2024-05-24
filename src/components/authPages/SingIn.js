@@ -24,7 +24,6 @@ export default function SignIn() {
     const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(data), secretKey);
     return encryptedData.toString();
   }
-
   const handleChange = async () => {
     setloading(true);
     try {

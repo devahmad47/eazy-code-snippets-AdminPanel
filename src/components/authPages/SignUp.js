@@ -18,7 +18,6 @@
 //   const [email, setEmail] = useState("");
 //   const [password, setPassword] = useState("");
 //   // console.log(serverUrl);
-
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     dispatch(signupRequest());
