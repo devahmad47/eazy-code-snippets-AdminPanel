@@ -5,10 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from "react-redux";
 import { Bar } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, PointElement, BarElement, Title, Tooltip, Legend } from 'chart.js';
-
 // Register the components
 Chart.register(CategoryScale, LinearScale, PointElement, BarElement, Title, Tooltip, Legend);
-
 const GraphComponent = () => {
   //   const storeUsers = useSelector(selectuserSuccess);
   const storeAllActiveUsers = useSelector(selectActiveUsers);
@@ -23,7 +21,6 @@ const GraphComponent = () => {
         const loginDate = new Date(user.lastLogin).toLocaleDateString();
         dateCounts[loginDate] = (dateCounts[loginDate] || 0) + 1;
       });
-
       const chartDataN = {
         labels: Object.keys(dateCounts),
         datasets: [
@@ -36,7 +33,6 @@ const GraphComponent = () => {
       };
       setChartData(chartDataN);
     };
-
     if (storeAllActiveUsers && storeAllActiveUsers.length > 0) {
       prepareChartData();
     }
@@ -59,3 +55,4 @@ const GraphComponent = () => {
 };
 
 export default GraphComponent;
+

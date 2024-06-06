@@ -9,14 +9,14 @@ export const appointmentSlice = createSlice({
     Addappointment: (state, action) => {
       state.appointments = action.payload;
     },
-    updateappointments: (state, action) => {
-      let data = action.payload;
-      console.log(data)
-      let index = state.appointments.findIndex((obj) => obj._id === data._id)
-      if (index !== -1) {
-        state.appointments[index] = data;
-      }
-    },
+    updateappointments:(state, action)=>{
+let data=action.payload;
+console.log(data)
+let index=state.appointments.findIndex((obj)=>obj._id===data._id)
+if(index !== -1){
+  state.appointments[index]=data;
+}
+},
     deleteappointment: (state, action) => {
       let id = action.payload;
       const updatedappointments = state.appointments.filter(function (product) {
@@ -24,7 +24,6 @@ export const appointmentSlice = createSlice({
       });
       state.appointments = updatedappointments;
     },
-
   },
 });
 

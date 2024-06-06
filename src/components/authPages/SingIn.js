@@ -14,12 +14,10 @@ export default function SignIn() {
   const [loading, setloading] = useState(false)
   const [error, setError] = useState(false)
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showpassword, setshowpassword] = useState(false);
-
   const encryptUserData = (data, secretKey) => {
     const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(data), secretKey);
     return encryptedData.toString();
@@ -37,7 +35,7 @@ export default function SignIn() {
         const admin = encryptUserData(response.data.admin, secretEnKey);
         localStorage.setItem('ARABIC_ADMIN_KEY_STRING', JSON.stringify({ admin, expiration: response.data.admin.sessionExpiration }));
 
-        toast.success("Login Succefully")
+        toast.success("Login Successfully")
         navigate("/Admin/starter");
       }
     } catch (error) {
